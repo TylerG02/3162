@@ -17,6 +17,12 @@ import (
 
 type application struct {
 	user_info models.UserModel
+	bus_company models.BusCompanyModel
+	bus_schedule models.BusScheduleModel
+	locations models.LocationModel
+	mileage models.MileageModel
+	ticket_info models.TicketModel
+	ticket_orders models.TicketOrdersModel
 }
 
 func main() {
@@ -29,8 +35,16 @@ func main() {
 		log.Println(err)
 		return
 	}
+	//share data across handlers
 	app := &application{
 		user_info: models.UserModel{DB: db},
+		bus_company: models.BusCompanyModel{DB: db},
+		bus_schedule: models.BusScheduleModel{DB: db},
+		locations: models.LocationModel{DB: db},
+		mileage: models.MileageModel{DB: db},
+		ticket_info: models.TicketModel{DB: db},
+		ticket_orders: models.TicketOrdersModel{DB: db},
+
 	}
 
 	defer db.Close()
