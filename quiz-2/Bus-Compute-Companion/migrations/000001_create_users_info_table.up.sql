@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS users_info (
-  id bigserial PRIMARY KEY AUTO_INCREMENT,
+  id bigserial PRIMARY KEY,
   fname varchar(255),
   lname varchar(255),
   email varchar(255),
